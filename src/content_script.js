@@ -1,28 +1,30 @@
 var timer;
 $(window).on('load', () => {
-  console.log("loaded");
-  document.querySelector("#input-panel #buttons #button").click();
-  document.querySelector("#input-panel #buttons #button").click();
-  channelId = getChannelId();
-  console.log(channelId);
-  
-  chrome.storage.local.get(function (items) {
-    order = items[channelId];
-    if (order != null) {
-      console.log(order);
-      timer = setInterval(function(){
-        result = applyOrder(order);
-        console.log(result,order.length)
-        if(result == order.length){
-          console.log("finished.");
-          clearInterval(timer);
+  bgtimer = setInterval(function(){
+    container = document.querySelector("div#categories div#emoji");
+    if(container == undefined){
+      console.log("loaded");
+      document.querySelector("#input-panel #buttons #button").click();
+      document.querySelector("#input-panel #buttons #button").click();
+      channelId = getChannelId();
+      console.log(channelId);
+      chrome.storage.local.get(function (items) {
+        order = items[channelId];
+        if (order != null) {
+          console.log(order);
+          timer = setInterval(function(){
+            result = applyOrder(order);
+            if(result == order.length){
+              console.log("finished.");
+              clearInterval(timer);
+            }
+          }, 100);
+        }else{
+          console.log("not stored");
         }
-      }, 500);
-    }else{
-      console.log("not stored");
-      console.log(items);
+      });
     }
-  });
+  },100);
 });
 chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
   //console.log(msg);
