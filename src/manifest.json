@@ -1,7 +1,7 @@
 {
   "name": "Member Stamp Sorter",
   "manifest_version": 2,
-  "version": "0.1",
+  "version": "0.3",
   "permissions": ["storage", "https://www.youtube.com/*"],
   "browser_action": {
     "default_title": "MemberStampSorter",
