@@ -1,0 +1,25 @@
+{
+  "name": "Member Stamp Sorter",
+  "manifest_version": 2,
+  "version": "0.1",
+  "permissions": ["storage", "https://www.youtube.com/*"],
+  "browser_action": {
+    "default_title": "MemberStampSorter",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "19": "icon72.png"
+    }
+  },
+  "icons": {
+    "16": "icon72.png",
+    "48": "icon72.png",
+    "128": "icon72.png"
+  },
+  "content_scripts": [
+    {
+      "js": ["jquery.min.js", "content_script.js"],
+      "matches": ["https://www.youtube.com/live_chat*"],
+      "all_frames": true
+    }
+  ]
+}
