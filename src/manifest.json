@@ -1,19 +1,19 @@
 {
   "name": "Member Stamp Sorter",
   "manifest_version": 2,
-  "version": "0.3",
+  "version": "1.0",
   "permissions": ["storage", "https://www.youtube.com/*"],
   "browser_action": {
     "default_title": "MemberStampSorter",
     "default_popup": "popup.html",
     "default_icon": {
-      "19": "icon72.png"
+      "19": "icon128.png"
     }
   },
   "icons": {
-    "16": "icon72.png",
-    "48": "icon72.png",
-    "128": "icon72.png"
+    "16":  "icon16.png",
+    "48":  "icon48.png",
+    "128": "icon128.png"
   },
   "content_scripts": [
     {
