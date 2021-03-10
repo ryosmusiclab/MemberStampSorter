@@ -1,46 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <script src="jquery.min.js"></script>
-        <script src="jquery-ui.min.js"></script>
-        <style>
-            body {
-                width: 240px;
-                height:auto;
-                background-color: #333;
-                color: #ccc;
-                font-size: 18px;
-                padding: 8px;
-            }
-            #stamplist {
-                margin-top:8px;
-                background-color: #555;
-                width:240px;
-                height: 400px;
-            }
-            #stamplist > img {
-                margin: 4px;
-            }
-            .ph1{
-                border: dotted 2px blue;
-                margin: 2px !important;
-            }
-            #getBtn {
-                margin-top: 8px;
-            }
-            #applyBtn {
-                margin-top: 8px;
-            }
-        </style>
-    </head>
 
-    <body>
-        <div>Member Stamp Sorter</div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="jquery.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <style>
+        body {
+            width: 240px;
+            height: auto;
+            background-color: #333;
+            color: #ccc;
+            font-size: 18px;
+            padding: 8px;
+        }
+
+        #wrapper {
+            margin-top: 8px;
+            width: 240px;
+            height: 400px;
+            position: relative;
+        }
+
+        #stamplist {
+            background-color: #555;
+            width: 100%;
+            height: 100%;
+        }
+
+        #overlay {
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            position: absolute;
+        }
+
+        #stamplist>img {
+            margin: 4px;
+        }
+
+        .ph1 {
+            border: dotted 2px blue;
+            margin: 2px !important;
+        }
+
+        #getBtn {
+            margin-top: 8px;
+        }
+
+        #applyBtn {
+            margin-top: 8px;
+        }
+
+        #loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+        }
+
+        .ball {
+            width: 50%;
+            height: 20px;
+            position: absolute;
+            top: calc(50% - 10px);
+            transform-origin: 100% 50%;
+            left: 0;
+        }
+
+        .ball::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #333;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .ball-1::before {
+            animation: loader 1s linear 0s infinite;
+        }
+
+        .ball-2 {
+            transform: rotate(45deg);
+        }
+
+        .ball-2::before {
+            animation: loader 1s linear -0.125s infinite;
+        }
+
+        .ball-3 {
+            transform: rotate(90deg);
+        }
+
+        .ball-3::before {
+            animation: loader 1s linear -0.25s infinite;
+        }
+
+        .ball-4 {
+            transform: rotate(135deg);
+        }
+
+        .ball-4::before {
+            animation: loader 1s linear -0.375s infinite;
+        }
+
+        .ball-5 {
+            transform: rotate(180deg);
+        }
+
+        .ball-5::before {
+            animation: loader 1s linear -0.5s infinite;
+        }
+
+        .ball-6 {
+            transform: rotate(225deg);
+        }
+
+        .ball-6::before {
+            animation: loader 1s linear -0.625s infinite;
+        }
+
+        .ball-7 {
+            transform: rotate(270deg);
+        }
+
+        .ball-7::before {
+            animation: loader 1s linear -0.75s infinite;
+        }
+
+        .ball-8 {
+            transform: rotate(315deg);
+        }
+
+        .ball-8::before {
+            animation: loader 1s linear -0.875s infinite;
+        }
+
+        @keyframes loader {
+            0% {
+                width: 20px;
+                height: 20px;
+                opacity: 1;
+            }
+
+            100% {
+                width: 6px;
+                height: 6px;
+                opacity: .2;
+                margin-left: 7px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>Member Stamp Sorter</div>
+    <div id="wrapper">
+        <div id="overlay">
+            <div id="loader">
+                <span class="ball ball-1"></span>
+                <span class="ball ball-2"></span>
+                <span class="ball ball-3"></span>
+                <span class="ball ball-4"></span>
+                <span class="ball ball-5"></span>
+                <span class="ball ball-6"></span>
+                <span class="ball ball-7"></span>
+                <span class="ball ball-8"></span>
+            </div>
+        </div>
         <div id="stamplist"></div>
-        <button id="applyBtn">並び順を反映</button>
-        <script src="popup.js"></script>
-    </body>
+    </div>
+    <button id="applyBtn">並び順を反映</button>
+    <script src="popup.js"></script>
+</body>
+
 </html>

@@ -16,9 +16,11 @@ function waitforStamps(){
             console.log(stampCount,response.length);
             if(stampCount == response.length && stampCount > 0){
                 clearInterval(timer);
+                $("#overlay").css("display","none");
             }else{
                 stampCount = response.length;
             }
+            console.log(response);
             displayStamps(response);
         });
     });
