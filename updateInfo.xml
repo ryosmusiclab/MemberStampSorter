@@ -1,0 +1,16 @@
+{
+  "addons": {
+    "{68811F71-888E-4B38-AA04-22C1A03311D8}": {
+      "updates": [
+        {
+          "version": "1.0",
+          "update_link": "https://github.com/ryosmusiclab/MemberStampSorter/releases/download/firefox-1.0.0/member_stamp_sorter-1.0-fx.xpi"
+        },
+        {
+          "version": "1.1",
+          "update_link": "https://github.com/ryosmusiclab/MemberStampSorter/releases/download/firefox-1.0.0/member_stamp_sorter-1.0-fx.xpi"
+        }
+      ]
+    }
+  }
+}
